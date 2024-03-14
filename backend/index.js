@@ -13,7 +13,8 @@ const { notFound, errorHandler } = require("./errorMiddleware");
 const app = express();
 
 connectDB();
-
+ 
+ 
 
 // Middleware
 app.use(express.json());
@@ -51,7 +52,7 @@ const server = app.listen(port, () => {
   console.log(`listening on port ${port}`)
 })
 const io = require("socket.io")(server, {
-  pingTimeout: 60000,
+  pingTimeout: 60000000,
   cors: {
     origin: "http://localhost:3000",
     // credentials: true,

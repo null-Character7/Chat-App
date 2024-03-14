@@ -31,6 +31,10 @@ import ChatLoading from "./ChatLoading";
     const toast = useToast();
   
     const { user, chats, setChats } = ChatState();
+
+    console.log("Group chat admin",user)
+
+    const GroupAdmin = user;
   
     const handleGroup = (userToAdd) => {
       if (selectedUsers.includes(userToAdd)) {
@@ -45,6 +49,7 @@ import ChatLoading from "./ChatLoading";
       }
   
       setSelectedUsers([...selectedUsers, userToAdd]);
+      console.log("userToadd",userToAdd)
     };
   
     const debounce = (func) => {
@@ -131,7 +136,7 @@ import ChatLoading from "./ChatLoading";
           description: error.response.data,
           status: "error",
           duration: 5000,
-          isClosable: true,
+          isClosable: true, 
           position: "bottom",
         });
       }
@@ -176,21 +181,22 @@ import ChatLoading from "./ChatLoading";
                   <UserBadgeItem
                     key={u._id}
                     user={u}
+                    admin={user}
                     handleFunction={() => handleDelete(u)}
                   />
                 ))}
               </Box>
-              {loading ? (
+              {false ? (
                 <ChatLoading/>
                 // <div>Loading...</div>
               ) : (
                 searchResult
                   ?.slice(0, 4)
-                  .map((user) => (
+                  .map((u) => (
                     <UserListItem
-                      key={user._id}
-                      user={user}
-                      handleFunction={() => handleGroup(user)}
+                      key={u._id}
+                      user={u}
+                      handleFunction={() => handleGroup(u)}
                     />
                   ))
               )}

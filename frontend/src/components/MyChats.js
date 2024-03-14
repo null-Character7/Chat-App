@@ -114,7 +114,7 @@ function MyChats({ fetchAgain }) {
                     ? "You :"
                     :  chat.isGroupChat && chat.latestMessage.sender.username}{" "}
                 </b>
-                {chat.isGroupChat && ":"}
+                {chat.isGroupChat }
                 {chat.latestMessage.content==null ? (
                   " Sent a file"
                 )

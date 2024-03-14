@@ -333,7 +333,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
                     closeOnBlur={false}
                   >
                     <PopoverTrigger>
-                      <Button>Send Image</Button>
+                      <Button>Send File</Button>
                     </PopoverTrigger>
                     <PopoverContent
                       color="white"
