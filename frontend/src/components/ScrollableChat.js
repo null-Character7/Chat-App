@@ -14,28 +14,28 @@ const ScrollableChat = ({ messages }) => {
   const { user } = ChatState();
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '80vh' }}>
-      <ScrollableFeed style={{ flex: 1, overflowY: 'auto' }}>
-      {messages &&
-        messages.map((m, i) => (
-          <div style={{ display: "flex" }} key={m._id}>
-            {(isSameSender(messages, m, i, user._id) ||
-              isLastMessage(messages, i, user._id)) && (
-              <Tooltip
-                label={m.sender.username}
-                placement="bottom-start"
-                hasArrow
-              >
-                <Avatar
-                  mt="7px"
-                  mr={1}
-                  size="sm"
-                  cursor="pointer"
-                  name={m.sender.username}
-                />
-              </Tooltip>
-            )}
-            {/* <span
+    <div style={{ display: "flex", flexDirection: "column", height: "80vh" }}>
+      <ScrollableFeed style={{ flex: 1, overflowY: "auto" }}>
+        {messages &&
+          messages.map((m, i) => (
+            <div style={{ display: "flex" }} key={m._id}>
+              {(isSameSender(messages, m, i, user._id) ||
+                isLastMessage(messages, i, user._id)) && (
+                <Tooltip
+                  label={m.sender.username}
+                  placement="bottom-start"
+                  hasArrow
+                >
+                  <Avatar
+                    mt="7px"
+                    mr={1}
+                    size="sm"
+                    cursor="pointer"
+                    name={m.sender.username}
+                  />
+                </Tooltip>
+              )}
+              {/* <span
               style={{
                 backgroundColor: `${
                   m.sender._id === user._id ? "#BEE3F8" : "#B9F5D0"
@@ -53,15 +53,20 @@ const ScrollableChat = ({ messages }) => {
                 <p>{m.content}</p>
               )}
             </span> */}
-            <Message
-        message={m}
-        userId={user._id}
-        isSameSenderMargin={isSameSenderMargin(messages, m, i, user._id)}
-        isSameUser={isSameUser(messages, m, i, user._id)}
-      />
-          </div>
-        ))}
-    </ScrollableFeed>
+              <Message
+                message={m}
+                userId={user._id}
+                isSameSenderMargin={isSameSenderMargin(
+                  messages,
+                  m,
+                  i,
+                  user._id
+                )}
+                isSameUser={isSameUser(messages, m, i, user._id)}
+              />
+            </div>
+          ))}
+      </ScrollableFeed>
     </div>
   );
 };

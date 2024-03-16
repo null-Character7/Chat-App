@@ -44,7 +44,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
   const initialFocusRef = React.useRef();
 
   const [imageUpload, setImageUpload] = useState(null);
-  // const [imageUrls, setImageUrls] = useState([]);
+  // const [imageUrls, setImageUrls] = useState([]); 
 
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
